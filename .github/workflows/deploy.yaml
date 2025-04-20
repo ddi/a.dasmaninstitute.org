@@ -1,0 +1,14 @@
+name: Deploy to ddi server
+on:
+  push:
+    branches:
+      - main 
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Remove .git folder
+        run: rm -rf .git
