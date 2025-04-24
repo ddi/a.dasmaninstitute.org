@@ -16,10 +16,6 @@ jobs:
         uses: actions/checkout@v4
       - name: Remove .git folder
         run: rm -rf .git
-      - name: create settings direcctory
-        run: mkdir -p /home/administrator/cd-data/apps.dasmaninstitute.org
-      - name: copy files
-        run: cp ./.env.example /home/administrator/cd-data/apps.dasmaninstitute.org/.env
       - name: get env config file
         run: cp /home/administrator/cd-data/apps.dasmaninstitute.org/.env ./.env
       - name: Install dependencies
