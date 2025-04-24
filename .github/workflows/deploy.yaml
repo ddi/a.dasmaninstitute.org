@@ -1,14 +1,31 @@
-name: Deploy to ddi server
+name: Deploy a.dasmaninstitute.org (Testing)
 on:
   push:
-    branches:
-      - main 
+    branches:      
+      - master
   workflow_dispatch:
 jobs:
   deploy:
     runs-on: self-hosted
     steps:
+      - name: Install PHP dependencies 
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y php-cli composer php-mbstring php-xml php-curl php-zip php-mysql
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Remove .git folder
         run: rm -rf .git
+      - name: get env config file
+        run: cp /home/administrator/cd-data/apps.dasmaninstitute.org/.env ./.env
+      - name: Install dependencies
+        run: composer install
+      - name: generate key
+        run: php artisan key:generate
+      - name: Database Migration
+        run: php artisan migrate:fresh --seed
+      - name: create temp folder
+        run: mkdir -p /home/administrator/cd-data/a.dasmaninstitute.org/temp/hubicons/
+      - name: backup uploaded files
+        run: rsync -a /home/a/sites/public/uploads/hubicons/ /home/administrator/cd-data/a.dasmaninstitute.org/temp/hubicons/
+        
