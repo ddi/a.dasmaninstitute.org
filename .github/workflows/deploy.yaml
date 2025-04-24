@@ -13,6 +13,7 @@ jobs:
       - name: Remove .git folder
         run: rm -rf .git
       - name: initial config
+        run: mkdir -p /home/administrator/cd-data/apps.dasmaninstitute.org
         run: cp ./.env.example /home/administrator/cd-data/apps.dasmaninstitute.org/.env
       - name: get env config file
         run: cp /home/administrator/cd-data/apps.dasmaninstitute.org/.env ./.env
