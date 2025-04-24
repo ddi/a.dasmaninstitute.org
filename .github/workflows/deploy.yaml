@@ -8,6 +8,10 @@ jobs:
   deploy:
     runs-on: self-hosted
     steps:
+      - name: Install PHP dependencies 
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y php-cli composer
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Remove .git folder
