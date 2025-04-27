@@ -29,7 +29,8 @@ jobs:
       - name: create temp folder
         run: | 
           mkdir -p /home/administrator/cd-data/a.dasmaninstitute.org/temp/hubicons/
-          mkdir -p /home/a/sites/public/uploads/hubicons/
+          sudo mkdir -p /home/a/sites/public/uploads/hubicons/
+          sudo chown -R a:a /home/a/sites/public/uploads/hubicons/          
       - name: backup uploaded files
         run: rsync -a /home/a/sites/public/uploads/hubicons/ /home/administrator/cd-data/a.dasmaninstitute.org/temp/hubicons/
         
