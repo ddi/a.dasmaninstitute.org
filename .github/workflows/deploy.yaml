@@ -27,7 +27,9 @@ jobs:
       - name: Database Migration
         run: php artisan migrate:fresh --seed
       - name: create temp folder
-        run: mkdir -p /home/administrator/cd-data/a.dasmaninstitute.org/temp/hubicons/
+        run: | 
+          mkdir -p /home/administrator/cd-data/a.dasmaninstitute.org/temp/hubicons/
+          mkdir -p /home/a/sites/public/uploads/hubicons/
       - name: backup uploaded files
         run: rsync -a /home/a/sites/public/uploads/hubicons/ /home/administrator/cd-data/a.dasmaninstitute.org/temp/hubicons/
         
