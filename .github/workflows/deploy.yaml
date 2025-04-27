@@ -18,8 +18,8 @@ jobs:
         run: rm -rf .git
       - name: get env config file
         run: |
-          cp /home/administrator/cd-data/apps.dasmaninstitute.org/.env ./.env
-          cat /home/administrator/cd-data/apps.dasmaninstitute.org/.env
+          cp /home/administrator/cd-data/a.dasmaninstitute.org/.env ./.env
+          cat /home/administrator/cd-data/a.dasmaninstitute.org/.env
       - name: Install dependencies
         run: composer install
       - name: generate key
