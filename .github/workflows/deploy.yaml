@@ -12,13 +12,14 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y php-cli composer php-mbstring php-xml php-curl php-zip php-mysql
-          cat .env
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Remove .git folder
         run: rm -rf .git
       - name: get env config file
-        run: cp /home/administrator/cd-data/apps.dasmaninstitute.org/.env ./.env
+        run: |
+          cp /home/administrator/cd-data/apps.dasmaninstitute.org/.env ./.env
+          cat /home/administrator/cd-data/apps.dasmaninstitute.org/.env
       - name: Install dependencies
         run: composer install
       - name: generate key
