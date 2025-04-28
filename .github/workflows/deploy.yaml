@@ -30,7 +30,15 @@ jobs:
         run: | 
           mkdir -p /home/administrator/cd-data/a.dasmaninstitute.org/temp/hubicons/
           sudo mkdir -p /home/a/sites/public/uploads/hubicons/
-          sudo chown -R a:a /home/a/sites/public/uploads/hubicons/          
+          sudo chown -R a:a /home/a/sites/public/uploads/hubicons/
       - name: backup uploaded files
         run: rsync -a /home/a/sites/public/uploads/hubicons/ /home/administrator/cd-data/a.dasmaninstitute.org/temp/hubicons/
+      - name: Replace the Current Codebase
+        run: |
+          sudo rm -rf /home/a/sites
+          sudo mkdir -p /home/a/sites
+          sudo rsync -a ./ /home/a/sites/
+          sudo chown -R a:a /home/a/sites/
+          sudo chmod -R 755 /home/a/sites/
+
         
