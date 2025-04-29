@@ -43,7 +43,7 @@
                         
                         <div class="d-flex flex-column align-items-center m-3">
                             
-                            version 0.9
+                            version 0.9.5
 
                         </div>
                         <ul class="nav has-active-border active-on-right">
