@@ -17,7 +17,9 @@ jobs:
       - name: Remove .git folder
         run: rm -rf .git
       - name: get env config file
-        run: cp /home/administrator/cd-data/apps.dasmaninstitute.org/.env ./.env
+        run: |
+          cp /home/administrator/cd-data/a.dasmaninstitute.org/.env ./.env
+          cat /home/administrator/cd-data/a.dasmaninstitute.org/.env
       - name: Install dependencies
         run: composer install
       - name: generate key
@@ -25,7 +27,18 @@ jobs:
       - name: Database Migration
         run: php artisan migrate:fresh --seed
       - name: create temp folder
-        run: mkdir -p /home/administrator/cd-data/a.dasmaninstitute.org/temp/hubicons/
+        run: | 
+          mkdir -p /home/administrator/cd-data/a.dasmaninstitute.org/temp/hubicons/
+          sudo mkdir -p /home/a/sites/public/uploads/hubicons/
+          sudo chown -R a:a /home/a/sites/public/uploads/hubicons/
       - name: backup uploaded files
         run: rsync -a /home/a/sites/public/uploads/hubicons/ /home/administrator/cd-data/a.dasmaninstitute.org/temp/hubicons/
+      - name: Replace the Current Codebase
+        run: |
+          sudo rm -rf /home/a/sites
+          sudo mkdir -p /home/a/sites
+          sudo rsync -a ./ /home/a/sites/
+          sudo chown -R a:a /home/a/sites/
+          sudo chmod -R 755 /home/a/sites/
+
         
