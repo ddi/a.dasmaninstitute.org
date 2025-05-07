@@ -47,7 +47,17 @@ class HubLinkSeeder extends Seeder
         $destinationPath = public_path('uploads' . DIRECTORY_SEPARATOR . 'hubicons');
 
         if (File::exists($destinationPath)) {
-            File::deleteDirectory($destinationPath);
+            $files = File::files($destinationPath);
+
+            foreach ($files as $file) {
+                $files = File::files($destinationPath);
+
+                foreach ($files as $file) {
+                    if ($file->getFilename() !== '.gitignore') {
+                        File::delete($file->getPathname());
+                    }
+                }
+            }
         }
         File::copyDirectory($sourcePath, $destinationPath);
     }

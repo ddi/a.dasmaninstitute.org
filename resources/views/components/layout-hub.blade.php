@@ -36,14 +36,14 @@
                     <div class="ace-scroll flex-grow-1" data-ace-scroll="{}">
                         @if (file_exists('images/ddi-logo.png'))
                             <div class="py-3 d-flex flex-column align-items-center m-3 bg-white radius-1">
-                                <img alt="DDI Logo" src="{{ URL::asset('/images/ddi-logo.png') }}" width="190"
-                                    height="173" class="p-2px" />
+                                <img alt="DDI Logo" src="{{ URL::asset('/images/ddi-logo.png') }}" width="190" height="173"
+                                    class="p-2px" />
                             </div>
                         @endif
-                        
+
                         <div class="d-flex flex-column align-items-center m-3">
-                            
-                            version 0.9
+
+                            version 0.1.0
 
                         </div>
                         <ul class="nav has-active-border active-on-right">
@@ -51,7 +51,7 @@
                                 <a href="{{ route('home') }}" class="nav-link">
                                     <i class="nav-icon fa fa-tachometer-alt"></i>
                                     <span class="nav-text fadeable">
-                                        <span>Hub</span>
+                                        <span>Home</span>
                                     </span>
                                 </a>
                                 <b class="sub-arrow"></b>
@@ -292,8 +292,7 @@
                         </div>
                     @endif
                     @if (session('error'))
-                        <div class="alert d-flex bgc-red-l3 brc-red-m4 border-1 border-l-0 pl-3 radius-l-0"
-                            role="alert">
+                        <div class="alert d-flex bgc-red-l3 brc-red-m4 border-1 border-l-0 pl-3 radius-l-0" role="alert">
                             <div class="position-tl h-102 border-l-4 brc-red mt-n1px"></div>
                             <i class="fa fa-exclamation-triangle mr-3 text-180 text-danger-m2"></i>
 
