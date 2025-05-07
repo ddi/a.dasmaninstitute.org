@@ -2,7 +2,7 @@ name: Deploy a.dasmaninstitute.org (Testing)
 on:
   push:
     branches:      
-      - master
+      - main
   workflow_dispatch:
 jobs:
   deploy:
