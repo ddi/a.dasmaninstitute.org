@@ -12,6 +12,9 @@ return new class extends Migration {
     {
         Schema::create('bme_instruments', function (Blueprint $table) {
             $table->string('id')->primary();
+            $table->integer('instrument_type_id')->nullable();
+            $table->integer('brand_id')->nullable();
+            $table->integer('model_id')->nullable();
             $table->string('serial_number')->nullable();
             $table->string('location')->nullable();
             $table->timestamps();
