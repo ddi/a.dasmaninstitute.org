@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\BmeBrand;
 use App\Models\HubLink;
 use App\Models\Role;
 use App\Models\User;
@@ -33,6 +34,12 @@ class DatabaseSeeder extends Seeder
         if (HubLink::count() == 0) {
             $this->call([
                 HubLinkSeeder::class,
+            ]);
+        }
+
+        if (BmeBrand::count() == 0) {
+            $this->call([
+                BmeSeeder::class,
             ]);
         }
     }
