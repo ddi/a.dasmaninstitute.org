@@ -40,12 +40,6 @@
                                     class="p-2px" />
                             </div>
                         @endif
-
-                        <div class="d-flex flex-column align-items-center m-3">
-
-                            version 0.1.0
-
-                        </div>
                         <ul class="nav has-active-border active-on-right">
                             <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
                                 <a href="{{ route('home') }}" class="nav-link">
@@ -279,6 +273,13 @@
                 </div>
             </div>
             <div role="main" class="main-content">
+                @if(request()->routeIs('home') || request()->routeIs('hublinks.*'))
+                    @includeIf('components.top-nav.home')
+                @endif
+
+                @if(request()->routeIs('biomedical.*'))
+                    @includeIf('components.top-nav.biomedical')
+                @endif
                 <div class="page-content">
                     @if (session('success'))
                         <div class="alert d-flex bgc-green-l4 brc-green-m4 border-1 border-l-0 pl-3 radius-l-0"
